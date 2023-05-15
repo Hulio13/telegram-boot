@@ -49,7 +49,7 @@ public final class Result<T> {
     public boolean equals(Object obj) {
         if (obj == this) return true;
         if (obj == null || obj.getClass() != this.getClass()) return false;
-        var that = (Result) obj;
+        var that = (Result<T>) obj;
         return this.isSuccess == that.isSuccess &&
                 Objects.equals(this.object, that.object) &&
                 Objects.equals(this.error, that.error) &&

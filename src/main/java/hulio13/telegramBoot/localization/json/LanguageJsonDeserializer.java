@@ -44,7 +44,7 @@ public final class LanguageJsonDeserializer extends StdDeserializer<Language> {
         if (langTag.isEmpty())
             throw new EmptyRequiredKeyException("Lang tag is empty");
 
-        DualHashBidiMap<String, String> buttonBidiMap = new DualHashBidiMap();
+        DualHashBidiMap<String, String> buttonBidiMap = new DualHashBidiMap<>();
         DualHashBidiMap<String, String> phrasesBidiMap = new DualHashBidiMap<>();
 
         logger.debug("Phrases deserialization.");
@@ -84,7 +84,7 @@ public final class LanguageJsonDeserializer extends StdDeserializer<Language> {
         }
     }
 
-    public boolean isNodeNullOrEmpty
+    private boolean isNodeNullOrEmpty
             (JsonNode jsonNode,
              String keyNameOfNode, String langTag) {
         if (jsonNode == null) {
