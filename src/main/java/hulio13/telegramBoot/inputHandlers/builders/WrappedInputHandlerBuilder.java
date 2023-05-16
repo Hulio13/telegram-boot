@@ -18,10 +18,7 @@ public class WrappedInputHandlerBuilder {
     }
 
     public void wrapWithLocalization() {
-        handler = new LocalizationInputHandlerWrapper(
-                handler,
-                properties.getPayload(),
-                properties.getLocale());
+        handler = new LocalizationInputHandlerWrapper(handler, properties);
     }
 
     public void wrapWithLogger() {

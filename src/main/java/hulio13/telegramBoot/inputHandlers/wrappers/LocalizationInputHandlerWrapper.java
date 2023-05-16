@@ -21,10 +21,10 @@ public final class LocalizationInputHandlerWrapper extends InputHandlerWrapper {
     private final Map<String, Object> vars;
     private final String languageTag;
 
-    public LocalizationInputHandlerWrapper(InputHandler inputHandler, Map<String, Object> vars, String languageTag) {
+    public LocalizationInputHandlerWrapper(InputHandler inputHandler, TgUserProperties properties) {
         super(inputHandler);
-        this.vars = vars;
-        this.languageTag = languageTag;
+        this.vars = properties.getPayload();
+        this.languageTag = properties.getLocale();
     }
 
     @Override
