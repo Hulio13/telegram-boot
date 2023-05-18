@@ -5,13 +5,17 @@ import hulio13.telegramBoot.inputHandlers.utils.KeyboardConverter;
 import hulio13.telegramBoot.tgUserProperties.TgUserProperties;
 import hulio13.telegramBoot.tgUserProperties.database.jsonDb.JsonTgUserPropertiesRepository;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
+import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 public final class Bot extends TelegramLongPollingBot {
 
     private final String botName;
+
+    private boolean isStarted = false;
 
     public Bot(String token, String botName) {
         super(token);
@@ -55,5 +59,15 @@ public final class Bot extends TelegramLongPollingBot {
     @Override
     public String getBotUsername() {
         return botName;
+    }
+
+    public void start() throws TelegramApiException {
+        if (!isStarted){
+            TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
+            botsApi.registerBot(this);
+            isStarted = true;
+        } else {
+            throw new RuntimeException("Bot already started.");
+        }
     }
 }
