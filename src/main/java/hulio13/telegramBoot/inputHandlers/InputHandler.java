@@ -5,7 +5,9 @@ import hulio13.telegramBoot.tgUserProperties.TgUserProperties;
 public interface InputHandler {
     String getId();
 
-    default boolean HasNonLocalizableText(){return false;}
+    default boolean HasNonLocalizableText() {
+        return false;
+    }
 
     void processInput(String input, TgUserProperties properties);
 

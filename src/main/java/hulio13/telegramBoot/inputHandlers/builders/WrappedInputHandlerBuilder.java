@@ -22,7 +22,7 @@ public class WrappedInputHandlerBuilder {
     }
 
     public void wrapWithLogger() {
-         handler = new LoggerInputHandlerWrapper(handler);
+        handler = new LoggerInputHandlerWrapper(handler);
     }
 
     /**
@@ -38,7 +38,7 @@ public class WrappedInputHandlerBuilder {
      *                 );
      * </pre>
      */
-    public void wrapWith(Supplier<InputHandlerWrapper> supplier){
+    public void wrapWith(Supplier<InputHandlerWrapper> supplier) {
         handler = supplier.get();
     }
 

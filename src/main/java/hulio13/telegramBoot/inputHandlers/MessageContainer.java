@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class MessageContainer {
     private final String msg;
-    private final ArrayList<ArrayList<String>>  stringKeyboard;
+    private final ArrayList<ArrayList<String>> stringKeyboard;
 
-    public MessageContainer(String msg, ArrayList<ArrayList<String>>  stringKeyboard) {
+    public MessageContainer(String msg, ArrayList<ArrayList<String>> stringKeyboard) {
         this.msg = msg;
         this.stringKeyboard = stringKeyboard;
     }
@@ -15,7 +15,7 @@ public class MessageContainer {
         return msg;
     }
 
-    public ArrayList<ArrayList<String>>  getStringKeyboard() {
+    public ArrayList<ArrayList<String>> getStringKeyboard() {
         return stringKeyboard;
     }
 }

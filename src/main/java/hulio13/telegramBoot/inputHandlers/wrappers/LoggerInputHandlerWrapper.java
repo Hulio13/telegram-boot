@@ -9,7 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public final class LoggerInputHandlerWrapper extends InputHandlerWrapper {
-    private static Logger logger = LoggerFactory.getLogger("InputHandlerLogger");
+    private static final Logger logger = LoggerFactory.getLogger("InputHandlerLogger");
 
     public LoggerInputHandlerWrapper(InputHandler inputHandler) {
         super(inputHandler);
@@ -24,12 +24,11 @@ public final class LoggerInputHandlerWrapper extends InputHandlerWrapper {
     public void processInput(String input, TgUserProperties properties) {
         logger.debug(getInputHandler().getId() + "'s processInput method called by user with " + properties.telegramId
                 + " telegram id.");
-        try{
+        try {
             super.processInput(input, properties);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             logger.error("Error msg: " + e.getMessage() + ". ");
-            logger.debug("Stacktrace: "  + ExceptionUtils.getStackTrace(e));
+            logger.debug("Stacktrace: " + ExceptionUtils.getStackTrace(e));
             throw e;
         }
 
@@ -37,12 +36,11 @@ public final class LoggerInputHandlerWrapper extends InputHandlerWrapper {
 
     @Override
     public MessageContainer getMessageForUser() {
-        try{
+        try {
             return super.getMessageForUser();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             logger.error("Error msg: " + e.getMessage() + ". ");
-            logger.debug("Stacktrace: "  + ExceptionUtils.getStackTrace(e));
+            logger.debug("Stacktrace: " + ExceptionUtils.getStackTrace(e));
             throw e;
         }
     }

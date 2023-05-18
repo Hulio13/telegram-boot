@@ -6,7 +6,7 @@ import hulio13.telegramBoot.inputHandlers.MessageContainer;
 import hulio13.telegramBoot.tgUserProperties.TgUserProperties;
 
 public abstract class InputHandlerWrapper implements InputHandler {
-    private InputHandler inputHandler;
+    private final InputHandler inputHandler;
 
     public InputHandlerWrapper(InputHandler inputHandler) {
         this.inputHandler = inputHandler;
@@ -27,7 +27,7 @@ public abstract class InputHandlerWrapper implements InputHandler {
         return inputHandler.getMessageForUser();
     }
 
-    protected InputHandler getInputHandler(){
+    protected InputHandler getInputHandler() {
         return inputHandler;
     }
 }

@@ -14,11 +14,11 @@ public final class TgUserPropertiesSaver extends JsonSaver<TgUserProperties> {
     @Override
     public void saveAll() {
         repository.forEach(tgUserProperties -> {
-                try {
-                    save(tgUserProperties, tgUserProperties.telegramId);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            });
+            try {
+                save(tgUserProperties, tgUserProperties.telegramId);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
 }

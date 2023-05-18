@@ -96,11 +96,11 @@ public final class LocalizationService {
         return new Result<>(button);
     }
 
-    public static String getDefaultLanguageTag(){
+    public static String getDefaultLanguageTag() {
         return repository.getDefaultLang().langTag();
     }
 
-    public static String[] getAvailableLanguageTags(){
+    public static String[] getAvailableLanguageTags() {
         return repository.getAllLanguageTags();
     }
 

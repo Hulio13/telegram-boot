@@ -13,12 +13,11 @@ public final class TgUserPropertiesSerialization implements JsonSerialization<Tg
         this.objectMapper = new ObjectMapper();
     }
 
-    public String serialize(TgUserProperties info){
+    public String serialize(TgUserProperties info) {
         try {
             String json = objectMapper.writeValueAsString(info);
             return json;
-        }
-        catch (JsonProcessingException e){
+        } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
     }

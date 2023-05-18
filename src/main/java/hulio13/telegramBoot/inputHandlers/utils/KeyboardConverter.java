@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class KeyboardConverter {
     public static ReplyKeyboardMarkup fromStringToTelegram(
-            ArrayList<ArrayList<String>> strKeyboard){
+            ArrayList<ArrayList<String>> strKeyboard) {
         var builder = ReplyKeyboardMarkup.builder();
 
         for (var strRow : strKeyboard) {

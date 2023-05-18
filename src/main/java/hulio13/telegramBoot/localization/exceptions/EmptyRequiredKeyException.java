@@ -1,6 +1,6 @@
 package hulio13.telegramBoot.localization.exceptions;
 
-public final class EmptyRequiredKeyException extends RuntimeException{
+public final class EmptyRequiredKeyException extends RuntimeException {
     public EmptyRequiredKeyException() {
     }
 

@@ -9,13 +9,13 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Set;
 
 public final class InputHandlerRegistrar {
-    private static Logger logger = LoggerFactory.getLogger(InputHandlerRegistrar.class);
+    private static final Logger logger = LoggerFactory.getLogger(InputHandlerRegistrar.class);
 
-    public static void registerHandlers(){
+    public static void registerHandlers() {
         registerWithAnnotations();
     }
 
-    private static void registerWithAnnotations(){
+    private static void registerWithAnnotations() {
         Reflections reflections = new Reflections("hulio13.notionAlarm.telegramBot");
 
         Set<Class<?>> set = reflections.getTypesAnnotatedWith(InputHandlerMarker.class);
@@ -25,7 +25,7 @@ public final class InputHandlerRegistrar {
                 Constructor<?> ctor = clazz.getConstructor();
                 InputHandler inputHandler = (InputHandler) ctor.newInstance();
                 logger.debug("Input handler with id \"" + inputHandler.getId()
-                + "\" added.");
+                        + "\" added.");
                 InputHandlersRepository.addHandler(inputHandler.getId(), inputHandler);
             } catch (NoSuchMethodException | InstantiationException | IllegalAccessException
                      | InvocationTargetException | IllegalArgumentException e) {

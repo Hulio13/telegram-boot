@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 public class LanguageJsonSerialization implements JsonSerialization<Language> {
     private static final Logger logger = LoggerFactory.getLogger(LanguageJsonSerialization.class);
     private final ObjectMapper objectMapper;
+
     public LanguageJsonSerialization() {
         objectMapper = new ObjectMapper();
         SimpleModule module = new SimpleModule();

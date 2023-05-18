@@ -11,9 +11,9 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public final class JsonTgUserPropertiesRepositoryInitializer {
-    private static Logger logger = LoggerFactory.getLogger(JsonTgUserPropertiesRepositoryInitializer.class);
+    private static final Logger logger = LoggerFactory.getLogger(JsonTgUserPropertiesRepositoryInitializer.class);
 
-    public static void initialize(String dbFolder, int delayToSaveInDb, TimeUnit unit){
+    public static void initialize(String dbFolder, int delayToSaveInDb, TimeUnit unit) {
         List<TgUserProperties> tgUserProperties = new JsonRepositoryLoader<TgUserProperties>().load(dbFolder, new TgUserPropertiesSerialization());
 
         var repository =

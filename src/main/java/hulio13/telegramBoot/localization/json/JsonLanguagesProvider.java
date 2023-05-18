@@ -12,7 +12,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public final class JsonLanguagesProvider {
-    private static Logger logger = LoggerFactory.getLogger(JsonLanguagesProvider.class);
+    private static final Logger logger = LoggerFactory.getLogger(JsonLanguagesProvider.class);
 
     private final String pathInResourcesFolder;
 
@@ -20,7 +20,7 @@ public final class JsonLanguagesProvider {
         this.pathInResourcesFolder = pathInResourcesFolder;
     }
 
-    public List<Language> getAll(){
+    public List<Language> getAll() {
         File[] files = ResourceFilesProvider.getResourceFolderFiles(pathInResourcesFolder);
 
         LinkedList<Language> languages = new LinkedList<>();

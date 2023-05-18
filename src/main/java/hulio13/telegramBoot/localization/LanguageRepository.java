@@ -12,20 +12,19 @@ import java.util.Optional;
 public final class LanguageRepository {
     private static final Logger logger = LoggerFactory.getLogger(LanguageRepository.class);
     private final List<Language> langs = new LinkedList<>();
-    private Language defaultLang;
+    private final Language defaultLang;
 
 
-    public LanguageRepository(List<Language> languages, String defaultLanguageTag){
+    public LanguageRepository(List<Language> languages, String defaultLanguageTag) {
         langs.addAll(languages);
 
         var defaultLang = langs.stream()
                 .filter(l -> l.langTag().equals(defaultLanguageTag))
                 .findFirst();
 
-        if (defaultLang.isPresent()){
+        if (defaultLang.isPresent()) {
             this.defaultLang = defaultLang.get();
-        }
-        else{
+        } else {
             throw new LanguageTagNotFoundException("Default language tag not found");
         }
 
@@ -33,8 +32,8 @@ public final class LanguageRepository {
 
     }
 
-    public Language getLanguageByLanguageTag(String langTag){
-        synchronized (langs){
+    public Language getLanguageByLanguageTag(String langTag) {
+        synchronized (langs) {
             Optional<Language> lang = langs.stream()
                     .filter(l -> l.langTag().equals(langTag))
                     .findFirst();
@@ -42,7 +41,7 @@ public final class LanguageRepository {
         }
     }
 
-    public String[] getAllLanguageTags(){
+    public String[] getAllLanguageTags() {
         return langs.stream()
                 .map(Language::langTag)
                 .toArray(String[]::new);

@@ -93,7 +93,7 @@ public final class LanguageJsonDeserializer extends StdDeserializer<Language> {
                     + langTag + "\"");
             return true;
         }
-        if (jsonNode.isEmpty()){
+        if (jsonNode.isEmpty()) {
             logger.warn("\"" + keyNameOfNode +
                     "\" key has no value in json with language tag \""
                     + langTag + "\"");

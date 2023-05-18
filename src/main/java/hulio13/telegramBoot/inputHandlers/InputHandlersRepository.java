@@ -9,15 +9,15 @@ public class InputHandlersRepository {
     private static final Logger logger =
             LoggerFactory.getLogger(InputHandlersRepository.class);
 
-    private static HashMap<String, InputHandler> inputHandlers = new HashMap<>();
+    private static final HashMap<String, InputHandler> inputHandlers = new HashMap<>();
 
-    public static void addHandler(String id, InputHandler inputHandler){
+    public static void addHandler(String id, InputHandler inputHandler) {
         inputHandlers.put(id, inputHandler);
     }
 
-    public static InputHandler getHandlerById(String id){
+    public static InputHandler getHandlerById(String id) {
         InputHandler handler = inputHandlers.get(id);
-        if (handler != null){
+        if (handler != null) {
             return handler;
         }
 

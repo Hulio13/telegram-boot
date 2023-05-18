@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class InputHandlerWrapperRegistry {
     private static final Logger logger = LoggerFactory.getLogger(InputHandlerWrapperRegistry.class);
@@ -106,7 +105,7 @@ public class InputHandlerWrapperRegistry {
         return handler;
     }
 
-    private static void logWrappedWith(String name){
+    private static void logWrappedWith(String name) {
         logger.trace("Wrapped with '" + name + "' class");
     }
 }

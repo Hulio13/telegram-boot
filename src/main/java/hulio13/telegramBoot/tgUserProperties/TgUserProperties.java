@@ -33,7 +33,7 @@ public final class TgUserProperties {
     }
 
     @JsonIgnore
-    public String getHandlerId(){
+    public String getHandlerId() {
         return handlerId;
     }
 
@@ -41,20 +41,20 @@ public final class TgUserProperties {
         this.locale = locale;
     }
 
-    public String getLocale(){
+    public String getLocale() {
         return locale;
     }
 
-    public void clearPayload(){
+    public void clearPayload() {
         payload.clear();
     }
 
     @JsonIgnore
-    public Map<String, Object> getPayload(){
+    public Map<String, Object> getPayload() {
         return payload;
     }
 
-    public String getUserId(){
+    public String getUserId() {
         return userId;
     }
 }

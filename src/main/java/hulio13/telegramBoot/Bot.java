@@ -47,10 +47,9 @@ public final class Bot extends TelegramLongPollingBot {
     }
 
     private TgUserProperties initializeTgUserProperties(String telegramId,
-                                    JsonTgUserPropertiesRepository repository) {
+                                                        JsonTgUserPropertiesRepository repository) {
         TgUserProperties properties;
         properties = new TgUserProperties(telegramId, telegramId);
-
 
 
         return properties;
@@ -62,7 +61,7 @@ public final class Bot extends TelegramLongPollingBot {
     }
 
     public void start() throws TelegramApiException {
-        if (!isStarted){
+        if (!isStarted) {
             TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
             botsApi.registerBot(this);
             isStarted = true;
