@@ -1,6 +1,7 @@
 package hulio13.telegramBoot;
 
 import hulio13.telegramBoot.inputHandlers.InputHandler;
+import hulio13.telegramBoot.inputHandlers.InputHandlerWrapperRegistry;
 import hulio13.telegramBoot.inputHandlers.InputHandlersRepository;
 import hulio13.telegramBoot.inputHandlers.MessageContainer;
 import hulio13.telegramBoot.inputHandlers.builders.WrappedInputHandlerBuilder;
@@ -78,6 +79,8 @@ public final class UserIOService {
 
         if (useLocalization && !properties.getLocale().equals("none")) builder.wrapWithLocalization();
         if (useLogger) builder.wrapWithLogger();
+
+        InputHandlerWrapperRegistry.wrapWithBuilder(builder, properties);
 
         return builder.getHandler();
     }
