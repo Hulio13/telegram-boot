@@ -25,6 +25,7 @@ public final class LocalizationInputHandlerWrapper extends InputHandlerWrapper {
         super(inputHandler);
         this.vars = properties.getPayload();
         this.languageTag = properties.getLocale();
+
     }
 
     @Override
@@ -35,7 +36,7 @@ public final class LocalizationInputHandlerWrapper extends InputHandlerWrapper {
         );
 
         if (resultButton.isSuccess()) {
-            input = resultButton.object();
+            input = resultButton.getObj();
         }
 
         super.processInput(input, properties);
@@ -52,16 +53,16 @@ public final class LocalizationInputHandlerWrapper extends InputHandlerWrapper {
 
         if (!resultMsg.isSuccess() && !getInputHandler().HasNonLocalizableText()) {
             throw new NotFoundException(
-                    resultMsg.error() + ": " + resultMsg.message()
+                    resultMsg.getError() + ": " + resultMsg.getMessage()
             );
         }
 
         String message;
 
-        if (resultMsg.object() == null &&
+        if (resultMsg.getObj() == null &&
                 getInputHandler().HasNonLocalizableText()) {
             message = messageContainer.getMsg();
-        } else message = resultMsg.object();
+        } else message = resultMsg.getObj();
 
         message = VariablesInPhraseInserter.insert(message, vars);
 
@@ -76,18 +77,18 @@ public final class LocalizationInputHandlerWrapper extends InputHandlerWrapper {
                         row.get(j));
 
                 if (!resultBtn.isSuccess() && !getInputHandler().HasNonLocalizableText()) {
-                    throw new NotFoundException(resultBtn.error() + ": "
-                            + resultBtn.message());
+                    throw new NotFoundException(resultBtn.getError() + ": "
+                            + resultBtn.getMessage());
                 }
 
-                if (resultBtn.object() == null &&
+                if (resultBtn.getObj() == null &&
                         getInputHandler().HasNonLocalizableText()) {
                     String button = messageContainer
                             .getStringKeyboard()
                             .get(i)
                             .get(j);
                     row.set(j, button);
-                } else row.set(j, resultBtn.object());
+                } else row.set(j, resultBtn.getObj());
             }
         }
 
