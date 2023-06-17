@@ -23,8 +23,8 @@ public abstract class InputHandlerWrapper implements InputHandler {
     }
 
     @Override
-    public MessageContainer getMessageForUser() {
-        return inputHandler.getMessageForUser();
+    public MessageContainer getMessageForUser(TgUserProperties properties) {
+        return inputHandler.getMessageForUser(properties);
     }
 
     protected InputHandler getInputHandler() {

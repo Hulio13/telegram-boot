@@ -35,9 +35,9 @@ public final class LoggerInputHandlerWrapper extends InputHandlerWrapper {
     }
 
     @Override
-    public MessageContainer getMessageForUser() {
+    public MessageContainer getMessageForUser(TgUserProperties properties) {
         try {
-            return super.getMessageForUser();
+            return super.getMessageForUser(properties);
         } catch (Exception e) {
             logger.error("Error msg: " + e.getMessage() + ". ");
             logger.debug("Stacktrace: " + ExceptionUtils.getStackTrace(e));

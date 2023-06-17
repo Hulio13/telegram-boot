@@ -11,5 +11,5 @@ public interface InputHandler {
 
     void processInput(String input, TgUserProperties properties);
 
-    MessageContainer getMessageForUser();
+    MessageContainer getMessageForUser(TgUserProperties properties);
 }

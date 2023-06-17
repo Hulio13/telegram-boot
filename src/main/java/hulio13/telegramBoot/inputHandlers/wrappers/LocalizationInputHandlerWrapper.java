@@ -42,8 +42,8 @@ public final class LocalizationInputHandlerWrapper extends InputHandlerWrapper {
     }
 
     @Override
-    public MessageContainer getMessageForUser() {
-        MessageContainer messageContainer = super.getMessageForUser();
+    public MessageContainer getMessageForUser(TgUserProperties properties) {
+        MessageContainer messageContainer = super.getMessageForUser(properties);
         String langTag = languageTag;
 
         Result<String> resultMsg = LocalizationService.getPhraseById(

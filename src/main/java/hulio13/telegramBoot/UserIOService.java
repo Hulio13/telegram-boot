@@ -68,7 +68,7 @@ public final class UserIOService {
     public MessageContainer getMessageForUser() {
         InputHandler handler = getHandler();
 
-        return handler.getMessageForUser();
+        return handler.getMessageForUser(properties);
     }
 
     private InputHandler getHandler() {
