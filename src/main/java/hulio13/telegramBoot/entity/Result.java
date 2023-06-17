@@ -4,13 +4,13 @@ import java.util.Objects;
 
 public final class Result<T> {
     private final boolean isSuccess;
-    private final T object;
+    private final T obj;
     private final String error;
     private final String message;
 
-    public Result(boolean isSuccess, T object, String error, String message) {
+    public Result(boolean isSuccess, T obj, String error, String message) {
         this.isSuccess = isSuccess;
-        this.object = object;
+        this.obj = obj;
         this.error = error;
         this.message = message;
     }
@@ -18,8 +18,8 @@ public final class Result<T> {
     /**
      * Use if result is successful.
      */
-    public Result(T object) {
-        this(true, object, "", "");
+    public Result(T obj) {
+        this(true, obj, "", "");
     }
 
     /**
@@ -34,7 +34,7 @@ public final class Result<T> {
     }
 
     public T object() {
-        return object;
+        return obj;
     }
 
     public String error() {
@@ -51,21 +51,21 @@ public final class Result<T> {
         if (obj == null || obj.getClass() != this.getClass()) return false;
         var that = (Result<T>) obj;
         return this.isSuccess == that.isSuccess &&
-                Objects.equals(this.object, that.object) &&
+                Objects.equals(this.obj, that.obj) &&
                 Objects.equals(this.error, that.error) &&
                 Objects.equals(this.message, that.message);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(isSuccess, object, error, message);
+        return Objects.hash(isSuccess, obj, error, message);
     }
 
     @Override
     public String toString() {
         return "Result[" +
                 "isSuccess=" + isSuccess + ", " +
-                "object=" + object + ", " +
+                "obj=" + obj + ", " +
                 "error=" + error + ", " +
                 "message=" + message + ']';
     }
